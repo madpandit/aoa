@@ -1,0 +1,148 @@
+1️⃣ Binary Search
+📘 Description:
+Binary Search is a highly efficient algorithm used to find the position of a target value in a sorted array. 
+Instead of checking every element one by one (like linear search), it repeatedly divides the search interval in half. 
+If the target value is smaller than the middle element, it searches the left half; otherwise, the right half. 
+This divide-and-conquer approach significantly reduces the number of comparisons.
+
+🧠 Algorithm:
+Set low = 0, high = n - 1.
+
+Repeat until low > high:
+
+Find the middle index: mid = (low + high) / 2.
+
+If arr[mid] == target, return mid.
+
+If arr[mid] < target, set low = mid + 1.
+
+Else, set high = mid - 1.
+
+If the element is not found, return -1.
+
+⏱️ Time Complexities:
+Best Case (Ω): Ω(1) — target is at the middle.
+
+Average Case (Θ): Θ(log n)
+
+Worst Case (O): O(log n)
+
+2️⃣ Insertion Sort
+📘 Description:
+Insertion Sort is a simple sorting algorithm that works like sorting playing cards in hand. 
+It builds the sorted array one element at a time. 
+For each element, it compares it with the elements before it and shifts them to make space for the current element to be inserted in the correct position.
+
+🧠 Algorithm:
+Loop from i = 1 to n - 1:
+
+Store key = arr[i]
+
+Compare key with previous elements and shift them one by one:
+
+While j >= 0 && arr[j] > key, shift arr[j] to arr[j+1]
+
+Insert key at the correct position
+
+Repeat until the whole array is sorted.
+
+⏱️ Time Complexities:
+Best Case (Ω): Ω(n) — when array is already sorted.
+
+Average Case (Θ): Θ(n²)
+
+Worst Case (O): O(n²) — when array is reverse sorted.
+
+3️⃣ Dijkstra’s Algorithm
+📘 Description:
+Dijkstra’s algorithm is used to find the shortest path from a source vertex to all other vertices in a weighted graph with non-negative weights. 
+It selects the vertex with the smallest distance, then updates the distances of its adjacent vertices. 
+This process is repeated until all vertices are processed.
+
+🧠 Algorithm:
+Set all distances to infinity, dist[source] = 0.
+
+While there are unvisited vertices:
+
+Select the vertex u with the minimum distance not yet processed.
+
+Mark u as processed.
+
+For each unprocessed neighbor v, if distance to v through u is smaller, update it.
+
+Repeat until all vertices are visited.
+
+⏱️ Time Complexities:
+Best/Average/Worst (O):
+
+Using adjacency matrix: O(V²)
+
+Using priority queue/min-heap: O((V + E) log V)
+
+4️⃣ Prim’s Algorithm
+📘 Description:
+Prim’s algorithm is used to find the Minimum Spanning Tree (MST) of a connected, undirected, weighted graph. 
+It starts from any vertex and keeps adding the smallest edge that connects a new vertex to the MST, until all vertices are included.
+
+🧠 Algorithm:
+Initialize a key[] array with ∞, key[0] = 0.
+
+Create a mstSet[] to track vertices included in MST.
+
+For V - 1 times:
+
+Pick the vertex u with the smallest key not in MST.
+
+Include u in MST.
+
+For every adjacent vertex v, if the edge u-v is smaller than key[v], update it.
+
+Use a parent[] array to track MST edges.
+
+⏱️ Time Complexities:
+Best/Average/Worst (O):
+
+Adjacency Matrix: O(V²)
+
+Min-Heap + Adjacency List: O((V + E) log V)
+
+5️⃣ Fractional Knapsack (Greedy Approach)
+📘 Description:
+Fractional Knapsack problem allows you to take fractions of items to maximize the total value in a knapsack of limited capacity. 
+The greedy strategy sorts items based on value-to-weight ratio and adds the most valuable items first.
+
+🧠 Algorithm:
+For each item, compute value/weight ratio.
+
+Sort all items by this ratio in descending order.
+
+Initialize totalValue = 0.
+
+For each item:
+
+If it fits, take the full item.
+
+If not, take the fraction that fits.
+
+Stop when the knapsack is full.
+
+⏱️ Time Complexities:
+All Cases (Θ / O / Ω): Θ(n log n) (because of sorting step)
+
+6️⃣ Travelling Salesman Problem (TSP) - Brute Force
+📘 Description:
+The TSP is a classic optimization problem. Given a list of cities and the cost of travel between each pair, 
+the goal is to find the shortest possible tour that visits each city once and returns to the starting point. 
+Brute force approach tries all possible permutations to find the minimum cost path.
+
+🧠 Algorithm:
+Start from the first city, mark it visited.
+
+Recur for all unvisited cities, calculate the cost.
+
+Once all cities are visited, return to the starting city and record total cost.
+
+Keep track of the minimum cost found so far.
+
+⏱️ Time Complexities:
+Best / Average / Worst (O / Θ / Ω): O(n!)
